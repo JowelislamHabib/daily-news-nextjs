@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import logo from "@/assets/daily-news.png";
+import { LucideBell, LucideBellPlus, LucideUser } from "lucide-react";
+import NavLinks from "./NavLinks";
 
 const Navbar = () => {
   return (
@@ -20,34 +22,28 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 gap-4 text-gray-600 font-medium">
               <li>
-                <Link href="/politics">Politics</Link>
+                <NavLinks href="/politics">Politics</NavLinks>
               </li>
               <li>
-                <Link href="/technology">Technology</Link>
+                <NavLinks href="/about">About</NavLinks>
               </li>
               <li>
-                <Link href="/culture">Culture</Link>
+                <NavLinks href="/culture">Culture</NavLinks>
               </li>
               <li>
-                <Link href="/business">Business</Link>
-              </li>
-              <li>
-                <Link href="/science">Science</Link>
-              </li>
-              <li>
-                <Link href="/opinion">Opinion</Link>
+                <NavLinks href="/business">Business</NavLinks>
               </li>
             </ul>
           </div>
 
           <div className="navbar-end gap-6">
             <Link
-              href="/signin"
-              className="text-sm font-medium text-gray-700 hover:text-black"
+              href="/login"
+              className="btn bg-gray-900 hover:bg-red-700 text-sm font-medium text-white"
             >
-              Sign In
+              <LucideUser /> Log In
             </Link>
-            <button className="btn btn-sm md:btn-md bg-[#990000] hover:bg-[#7a0000] text-white border-none rounded-none px-8 font-serif text-lg capitalize">
+            <button className="hidden md:inline-block btn btn-sm md:btn-md bg-red-900 hover:bg-red-700 text-white px-8 font-serif text-lg capitalize">
               Subscribe
             </button>
           </div>
