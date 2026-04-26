@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import logo from "@/assets/daily-news.png";
-import { LucideBell, LucideBellPlus, LucideUser } from "lucide-react";
 import NavLinks from "./NavLinks";
+import { PiSignInDuotone } from "react-icons/pi";
 
 const Navbar = () => {
   return (
@@ -43,7 +43,8 @@ const Navbar = () => {
               href="/login"
               className="btn bg-gray-900 hover:bg-red-700 text-sm font-medium text-white"
             >
-              <LucideUser /> Log In
+              <PiSignInDuotone size={24} />
+              Log In
             </Link>
             <button className="hidden md:inline-block btn btn-sm md:btn-md bg-red-900 hover:bg-red-700 text-white px-8 font-serif text-lg capitalize">
               Subscribe
