@@ -1,5 +1,7 @@
 import LeftSidebar from "@/components/shared/homepage/news/LeftSidebar";
+import NoNews from "@/components/shared/homepage/news/NoNews";
 import RightSIdebar from "@/components/shared/homepage/news/RightSIdebar";
+import NewsCard from "@/components/shared/homepage/NewsCard";
 import { getCategories, getCategoriesNews } from "@/lib/data";
 import React from "react";
 
@@ -27,10 +29,10 @@ const NewsDetailsPage = async ({ params }) => {
         <div className="space-y-4">
           {news.data.length > 0 ? (
             news.data.map((n) => {
-              return <div key={n._id}>{n.title}</div>;
+              return <NewsCard key={n._id} news={n}></NewsCard>;
             })
           ) : (
-            <h2>NO news</h2>
+            <NoNews />
           )}
         </div>
       </div>
