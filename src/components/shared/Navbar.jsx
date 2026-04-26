@@ -25,7 +25,9 @@ const Navbar = () => {
                 <NavLinks href="/politics">Politics</NavLinks>
               </li>
               <li>
-                <NavLinks href="/about">About</NavLinks>
+                <NavLinks href="/about" className="text-blue-700">
+                  About
+                </NavLinks>
               </li>
               <li>
                 <NavLinks href="/culture">Culture</NavLinks>
