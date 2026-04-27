@@ -1,8 +1,21 @@
 import React from "react";
 import Link from "next/link";
 import { FaArrowLeft, FaEye, FaShareAlt, FaRegBookmark } from "react-icons/fa";
-import { getNewsDetails } from "@/lib/data";
+import { getCategoriesNews, getNewsDetails } from "@/lib/data";
 import Image from "next/image";
+
+export const generateMetadata = async ({ params }) => {
+  const { id } = await params;
+  console.log(id, "params");
+  const news = await getNewsDetails(id);
+  const metaTitle = news.data[0].title;
+  const metaDescription = news.data[0].title;
+
+  return {
+    title: metaTitle,
+    description: metaDescription,
+  };
+};
 
 const NewsDetailsPage = async ({ params }) => {
   const { id } = await params;

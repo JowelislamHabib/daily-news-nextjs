@@ -18,11 +18,11 @@ const NewsCard = ({ news }) => {
         <div className="flex items-center gap-3">
           <Image
             src={author.img}
-            alt={author.name}
+            alt="Reporter"
             height={10}
             width={10}
             className="w-10 h-10 rounded-full object-cover"
-          ></Image>
+          />
           <div>
             <p className="font-semibold text-gray-800 text-sm">
               {author.name || "Unknown Author"}

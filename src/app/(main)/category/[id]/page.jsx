@@ -5,15 +5,20 @@ import NewsCard from "@/components/shared/homepage/NewsCard";
 import { getCategories, getCategoriesNews } from "@/lib/data";
 import React from "react";
 
+export const metadata = {
+  title: "Daily News - Category",
+  description: "The Pulse of the Present.",
+};
+
 const NewsDetailsPage = async ({ params }) => {
   const { id } = await params;
-  console.log(id);
+  // console.log(id);
 
   const categoryPromise = await getCategories();
   const categories = categoryPromise.data.news_category;
 
   const news = await getCategoriesNews(id);
-  console.log(news);
+  // console.log(news);
 
   return (
     <div className="container mx-auto px-4 grid grid-cols-12 gap-8 my-15">
