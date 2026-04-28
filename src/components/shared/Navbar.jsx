@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import logo from "@/assets/daily-news.png";
 import NavLinks from "./NavLinks";
-import { PiSignInDuotone } from "react-icons/pi";
+import { PiSignInDuotone, PiKeyDuotone } from "react-icons/pi";
 import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
@@ -63,17 +63,14 @@ const Navbar = () => {
                       alt={userLoggedIn?.name || "User"}
                       height={40}
                       width={40}
-                      className="object-contain border border-2 border-neutral-200 p-1 rounded-full"
+                      className="object-contain border-2 border-neutral-200 p-1 rounded-full"
                     />
                   </div>
                 </div>
 
                 <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
                   <li>
-                    <a>{userLoggedIn?.name}</a>
-                  </li>
-                  <li>
-                    <a>Settings</a>
+                    <Link href={"/profile"}>My Profile</Link>
                   </li>
                   <li>
                     <Link href={"/"} onClick={async () => authClient.signOut()}>
@@ -92,10 +89,13 @@ const Navbar = () => {
                 <PiSignInDuotone size={24} />
                 Log In
               </Link>
-
-              <button className="hidden md:inline-block btn btn-sm md:btn-md bg-red-900 hover:bg-red-700 text-white px-8 font-serif text-lg capitalize">
-                Subscribe
-              </button>
+              <Link
+                href="/register"
+                className="btn bg-red-900 hover:bg-red-700 text-sm font-medium text-white"
+              >
+                <PiKeyDuotone size={24} />
+                Register
+              </Link>
             </>
           )}
         </div>
