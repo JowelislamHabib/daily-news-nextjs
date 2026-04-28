@@ -3,7 +3,7 @@ import { format } from "date-fns";
 import { PiCalendarDotsDuotone } from "react-icons/pi";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
-const RightSIdebar = () => {
+const RightSidebar = () => {
   return (
     <>
       <div>
@@ -35,4 +35,4 @@ const RightSIdebar = () => {
   );
 };
 
-export default RightSIdebar;
+export default RightSidebar;

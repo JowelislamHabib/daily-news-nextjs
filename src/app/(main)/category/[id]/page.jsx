@@ -1,6 +1,6 @@
 import LeftSidebar from "@/components/shared/homepage/news/LeftSidebar";
 import NoNews from "@/components/shared/homepage/news/NoNews";
-import RightSIdebar from "@/components/shared/homepage/news/RightSIdebar";
+import RightSidebar from "@/components/shared/homepage/news/RightSidebar";
 import NewsCard from "@/components/shared/homepage/NewsCard";
 import { getCategories, getCategoriesNews } from "@/lib/data";
 import React from "react";
@@ -43,7 +43,7 @@ const NewsDetailsPage = async ({ params }) => {
       </div>
       <div className="col-span-3">
         <div>
-          <RightSIdebar />
+          <RightSidebar />
         </div>
       </div>
     </div>
