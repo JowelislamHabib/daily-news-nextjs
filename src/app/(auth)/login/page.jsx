@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import { authClient } from "@/lib/auth-client";
 
 const LoginPage = () => {
   const {
@@ -11,10 +12,23 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm();
 
-  const handleLoginFunc = (data) => {
-    console.log(data);
+  const handleLoginFunc = async (loginData) => {
+    console.log(loginData);
+    const { email, password } = loginData;
+
+    const { data, error } = await authClient.signIn.email({
+      email: email, // required
+      password: password, // required
+      rememberMe: true,
+      callbackURL: "/",
+    });
+
+    if (error) {
+      alert(error.message);
+    }
+
+    console.log(data, error, "login");
   };
-  console.log(errors, "errors");
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-base-200 py-12 px-4">
@@ -38,9 +52,12 @@ const LoginPage = () => {
             <input
               type="email"
               placeholder="Enter your email address"
+              {...register("email", { required: "Email is required" })}
               className="input input-bordered w-full bg-gray-50 focus:bg-white transition-all"
-              required
             />
+            {errors.email && (
+              <p className="text-red-500">{errors.email.message}</p>
+            )}
           </div>
 
           {/* Password Field */}

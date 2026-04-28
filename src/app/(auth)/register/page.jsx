@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { authClient } from "@/lib/auth-client";
 
 const RegisterPage = () => {
   const {
@@ -10,9 +11,22 @@ const RegisterPage = () => {
     formState: { errors },
   } = useForm();
 
-  const handleRegistrationFunc = (data) => {
-    const { name, photo, email, password } = data;
-    console.log(data);
+  const handleRegistrationFunc = async (userData) => {
+    const { name, photo, email, password } = userData;
+
+    const { data, error } = await authClient.signUp.email({
+      name: name, // required
+      email: email, // required
+      password: password, // required
+      image: photo,
+      callbackURL: "/",
+    });
+
+    if (error) {
+      alert(error.message);
+    }
+
+    console.log(data, error);
   };
 
   return (
