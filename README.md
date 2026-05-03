@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Daily News Next.js
+
+A modern **news portal** built with **Next.js 16**, **React 19**, **MongoDB**, and **better-auth**.  
+It includes news category pages, article details, authentication, and shared UI components for the homepage and sidebars.
+
+## Features
+
+- News homepage with shared layout
+- Category-based news listing
+- News details pages
+- Politics page
+- Authentication:
+  - Login
+  - Register
+  - Profile
+- Google login support
+- MongoDB-backed auth with `better-auth`
+- Responsive UI with Tailwind CSS + DaisyUI
+
+## Tech Stack
+
+- **Next.js 16.2.4**
+- **React 19.2.4**
+- **MongoDB**
+- **better-auth**
+- **Tailwind CSS 4**
+- **DaisyUI**
+- **date-fns**
+- **react-icons**
+- **react-hook-form**
+- **react-fast-marquee**
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Set environment variables
+
+Create a `.env.local` file in the project root:
+
+```env
+MONGO_DB_URL=your_mongodb_connection_string
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+```
+
+### 3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
 
-## Learn More
+## Authentication
 
-To learn more about Next.js, take a look at the following resources:
+Authentication is configured in:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/lib/auth.js`
+- `src/app/api/auth/[...all]/route.js`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+It uses **better-auth** with MongoDB as the database adapter.
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+daily-news-nextjs
+├── .env
+├── .gitignore
+├── AGENTS.md
+├── CLAUDE.md
+├── README.md
+├── eslint.config.mjs
+├── jsconfig.json
+├── next.config.mjs
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+└── src
+    ├── app
+    │   ├── (auth)
+    │   │   ├── layout.js
+    │   │   ├── login
+    │   │   │   └── page.jsx
+    │   │   ├── profile
+    │   │   │   └── page.jsx
+    │   │   └── register
+    │   │       └── page.jsx
+    │   ├── (main)
+    │   │   ├── category
+    │   │   │   └── [id]
+    │   │   │       └── page.jsx
+    │   │   ├── layout.js
+    │   │   ├── news
+    │   │   │   └── [id]
+    │   │   │       └── page.jsx
+    │   │   ├── page.js
+    │   │   └── politics
+    │   │       └── page.jsx
+    │   ├── api
+    │   │   └── auth
+    │   │       └── [...all]
+    │   │           └── route.js
+    │   ├── favicon.ico
+    │   ├── globals.css
+    │   ├── layout.js
+    │   ├── loading.js
+    │   └── not-found.jsx
+    ├── assets
+    │   ├── bg.png
+    │   ├── class.png
+    │   ├── daily-news.png
+    │   ├── demo-card-thumbnail.png
+    │   ├── demo-user.png
+    │   ├── fb.png
+    │   ├── instagram.png
+    │   ├── logo.png
+    │   ├── nav-logo.png
+    │   ├── playground.png
+    │   ├── star.png
+    │   ├── swimming.png
+    │   ├── twitter.png
+    │   └── user.png
+    ├── components
+    │   ├── GoogleLogin.jsx
+    │   └── shared
+    │       ├── BreakingNews.jsx
+    │       ├── Footer.jsx
+    │       ├── Header.jsx
+    │       ├── NavLinks.jsx
+    │       ├── Navbar.jsx
+    │       └── homepage
+    │           ├── NewsCard.jsx
+    │           └── news
+    │               ├── LeftSidebar.jsx
+    │               ├── NoNews.jsx
+    │               └── RightSidebar.jsx
+    └── lib
+        ├── auth-client.js
+        ├── auth.js
+        └── data.js
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+This project is ready to deploy on **Vercel**.
+
+```bash
+npm run build
+```
+
+Add the environment variables in the Vercel dashboard before deploying.
