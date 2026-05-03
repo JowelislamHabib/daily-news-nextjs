@@ -15,7 +15,7 @@ import { LuBadgeHelp } from "react-icons/lu";
 
 const LeftSidebar = ({ categories, activeId }) => {
   return (
-    <div className="bg-red-50 p-4 rounded-lg">
+    <div className="bg-gray-50 p-4 rounded-lg">
       <h2 className="text-2xl font-semibold mb-6 text-gray-900">Categories</h2>
       <ul className="flex flex-col gap-5">
         {categories.map((category) => {
