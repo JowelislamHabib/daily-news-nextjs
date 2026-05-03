@@ -1,13 +1,7 @@
 import React from "react";
 import { format } from "date-fns";
 import { getCategories, getCategoriesNews } from "@/lib/data";
-import {
-  PiCalendarDotsDuotone,
-  PiHashDuotone,
-  PiNewspaperClippingDuotone,
-  PiUserCirclePlusDuotone,
-} from "react-icons/pi";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import { PiCalendarDotsDuotone } from "react-icons/pi";
 import Link from "next/link";
 
 const RightSidebar = async () => {
@@ -19,7 +13,6 @@ const RightSidebar = async () => {
 
   return (
     <aside className="w-full space-y-10">
-      {/* 1. Refined Date Display - Clean & Editorial */}
       <div className="border-b-2 border-gray-100 pb-4">
         <div className="flex items-center gap-2 text-red-900 mb-1">
           <PiCalendarDotsDuotone size={20} />
@@ -32,24 +25,6 @@ const RightSidebar = async () => {
         </p>
       </div>
 
-      {/* 2. Login Section - Consistent Header & Sleek Buttons */}
-      <div>
-        <h2 className="text-xl font-bold mb-5 flex items-center gap-2 text-gray-900 border-l-4 border-red-900 pl-3">
-          Join Community
-        </h2>
-        <div className="space-y-3">
-          <button className="w-full flex items-center justify-center gap-3 py-3 px-4 border border-gray-200 rounded-lg text-gray-700 font-medium hover:bg-gray-50 hover:border-gray-300 transition-all active:scale-[0.98]">
-            <FaGoogle className="text-red-600" size={18} />
-            <span>Continue with Google</span>
-          </button>
-          <button className="w-full flex items-center justify-center gap-3 py-3 px-4 bg-gray-900 rounded-lg text-white font-medium hover:bg-black transition-all active:scale-[0.98]">
-            <FaGithub size={18} />
-            <span>Continue with Github</span>
-          </button>
-        </div>
-      </div>
-
-      {/* 3. Categories - Tag Style */}
       <div>
         <h2 className="text-xl font-bold mb-5 flex items-center gap-2 text-gray-900 border-l-4 border-red-900 pl-3">
           Explore Topics
@@ -66,8 +41,6 @@ const RightSidebar = async () => {
           ))}
         </div>
       </div>
-
-      {/* 4. Trending News */}
       <div>
         <h2 className="text-xl font-bold mb-5 flex items-center gap-2 text-gray-900 border-l-4 border-red-900 pl-3">
           Top Headlines
@@ -101,8 +74,6 @@ const RightSidebar = async () => {
           ))}
         </div>
       </div>
-
-      {/* 5. Promotional Banner */}
       <div className="relative overflow-hidden bg-gray-900 rounded-xl p-8 text-center group">
         <div className="absolute top-0 right-0 w-32 h-32 bg-red-900/20 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
         <h3 className="text-xl font-bold text-white relative z-10">

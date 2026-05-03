@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import GoogleLogin from "@/components/GoogleLogin";
 
 const RegisterPage = () => {
   const {
@@ -145,6 +146,10 @@ const RegisterPage = () => {
             Register
           </button>
         </form>
+
+        <div className="py-6">
+          <GoogleLogin />
+        </div>
 
         {/* Login Link */}
         <p className="text-center mt-8 text-gray-600 font-medium">

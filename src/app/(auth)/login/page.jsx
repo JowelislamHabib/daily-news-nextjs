@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
+import GoogleLogin from "@/components/GoogleLogin";
 
 const LoginPage = () => {
   const {
@@ -97,12 +98,7 @@ const LoginPage = () => {
           Or login with
         </div>
         <div className="flex gap-4 justify-center mt-6">
-          <button className="btn btn-outline btn-circle hover:bg-gray-100 border-gray-300">
-            <FaGoogle className="text-xl text-blue-500" />
-          </button>
-          <button className="btn btn-outline btn-circle hover:bg-gray-100 border-gray-300">
-            <FaGithub className="text-xl text-gray-800" />
-          </button>
+          <GoogleLogin />
         </div>
       </div>
     </div>
