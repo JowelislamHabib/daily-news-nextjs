@@ -56,7 +56,7 @@ const RightSidebar = async () => {
                 <img
                   src={news.thumbnail_url}
                   alt={news.title}
-                  className="w-20 h-20 object-cover rounded-md shadow-sm grayscale-[30%] group-hover:grayscale-0 transition-all"
+                  className="w-20 h-20 object-contain rounded-md shadow-sm grayscale-[30%] group-hover:grayscale-0 transition-all"
                 />
               </div>
               <div className="flex flex-col">
