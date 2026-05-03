@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
   const {
@@ -11,6 +12,7 @@ const RegisterPage = () => {
     formState: { errors },
   } = useForm();
 
+  const router = useRouter();
   const handleRegistrationFunc = async (userData) => {
     const { name, photo, email, password } = userData;
 
@@ -19,11 +21,16 @@ const RegisterPage = () => {
       email: email, // required
       password: password, // required
       image: photo,
-      callbackURL: "/",
     });
 
     if (error) {
       alert(error.message);
+    }
+    if (data) {
+      alert(
+        "Registration successful! Please check your email to verify your account.",
+      );
+      router.push("/");
     }
 
     console.log(data, error);
