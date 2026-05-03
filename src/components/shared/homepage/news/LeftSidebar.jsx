@@ -8,6 +8,7 @@ import {
   PiTrophyDuotone,
   PiFilmSlateDuotone,
   PiGradientDuotone,
+  PiRightArrowDuotone,
 } from "react-icons/pi";
 import { AiTwotoneThunderbolt } from "react-icons/ai";
 import { LuBadgeHelp } from "react-icons/lu";
@@ -23,7 +24,7 @@ const LeftSidebar = ({ categories, activeId }) => {
           return (
             <li
               key={category.category_id}
-              className={`${activeId === category.category_id && "font-bold text-red-900"}`}
+              className={`${activeId === category.category_id && "font-bold text-red-900 bg-white p-2 rounded-lg"}`}
             >
               <Link
                 href={`/category/${category.category_id}`}
